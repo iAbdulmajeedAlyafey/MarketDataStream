@@ -1,0 +1,95 @@
+[versions]
+androidGradlePlugin = "8.9.1"
+androidTools = "31.10.1"
+kotlin = "2.0.21"
+coreKtx = "1.16.0"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+material = "1.12.0"
+composeBom = "2025.05.01"
+navigationCompose = "2.9.0"
+viewModelCompose = "2.9.1"
+coroutines = "1.10.1"
+hiltNavigationCompose = "1.2.0"
+hilt = "2.56"
+androidxLifecycle = "2.8.7"
+androidxActivity = "1.10.1"
+timber = "5.0.1"
+
+[libraries]
+
+# Core
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+# TODO for build-logic..
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
+android-tools-common = { group = "com.android.tools", name = "common", version.ref = "androidTools" }
+
+# Compose BOM
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" } # Version from BOM
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" } # Version from BOM
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" } # Version from BOM
+androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation" } # Version from BOM
+androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout" } # Version from BOM
+
+# Compose & ViewModel
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
+androidx-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "viewModelCompose" }
+androidx-lifecycle-Compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidxLifecycle" }
+androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivity" }
+
+# Hilt
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+
+# Coroutines
+coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+
+# Testing
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+
+# Logs
+timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+
+[bundles]
+compose = [
+    "androidx-compose-ui",
+    "androidx-compose-material3",
+    "androidx-compose-ui-tooling-preview",
+    "androidx-compose-foundation",
+    "androidx-compose-foundation-layout",
+    "androidx-activity-compose",
+    "androidx-viewmodel-compose",
+    "androidx-hilt-navigation-compose",
+    "androidx-lifecycle-Compose",
+    "androidx-navigation-compose"
+]
+core = [
+    "androidx-core-ktx",
+    "material",
+]
+coroutines  = [
+    "coroutines-core",
+    "coroutines-android",
+]
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+
+# TODO Local project convention plugins
+marketdata-android-application = { id = "marketdata.android.application" }
+marketdata-android-compose = { id = "marketdata.android.compose" }
